@@ -1,10 +1,7 @@
 # flutter_morse_util
 
-##一个基于flutter开发的跨端的摩尔斯标准密码工具，支持在线解码/编码，和离线解码/编码。
+一个基于flutter开发的跨端的摩尔斯标准密码工具，支持在线解码/编码，和离线解码/编码。
 
-[中文文档](https://github.com/M78Code/flutter_morse_util.git/README.md)
-
-[github](https://github.com/M78Code/flutter_morse_util)
 
 ## 项目环境
 - flutter     --version v1.17.5
