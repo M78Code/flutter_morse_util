@@ -16,13 +16,13 @@
 
 ### 安装依赖：
     这个项目使用了flutter开发，请确保你本地安装了相关开发环境。
-        1，检查版本号是否正确
-            flutter --version
-        2，运行命令查看是否需要安装其他依赖
-            flutter doctor
-        3，运行启动
-            flutter pub get
-            flutter run
+        #### 1，检查版本号是否正确
+                flutter --version
+        #### 2，运行命令查看是否需要安装其他依赖
+                flutter doctor
+        #### 3，运行启动
+                flutter pub get
+                flutter run
             
 ```
 dependencies:
