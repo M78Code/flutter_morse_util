@@ -25,7 +25,7 @@
 dependencies:
   flutter:
     sdk: flutter
-# 添加依赖
+  # 添加依赖
   flutter_morse_util: ^0.0.1
 ```
 
