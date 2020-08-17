@@ -31,7 +31,7 @@ MorseUtil _morseUtil = MorseUtil();
 
 //start encode/decode
 _morseUtil.encode('摩尔斯'); // --..-...--.-..-/-.---.....-.-../--..-.--.-.----/
-_morseUtil.decode('--..-...--.-..-/-.---.....-.-../--..-.--.-.----/');j // 摩尔斯
+_morseUtil.decode('--..-...--.-..-/-.---.....-.-../--..-.--.-.----/'); // 摩尔斯
 
 [example demo](/example/lib/main.dart)
 
