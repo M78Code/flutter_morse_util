@@ -14,12 +14,12 @@ String binaryToString(int n) {
 }
 
 ///二进制转十进制
-int binaryToDecimalString(String s) {
+num binaryToDecimalString(String s) {
   if (s.isNotEmpty) {
     try {
-      int total = 0;
+      num total = 0;
       List<String> list = s.split('');
-      int size = list.length;
+      num size = list.length;
       for (int i = 0; i < size; i++) {
         total += int.parse(list[i]) * pow(2, size - 1 - i);
       }

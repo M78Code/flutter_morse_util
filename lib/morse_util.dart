@@ -111,11 +111,11 @@ class MorseUtil {
       for (String s in splitList) {
         if (s.isNotEmpty) {
           String word = s.replaceAll(_dit, '0').replaceAll(_dah, '1');
-          int codePoint = _dictionaries[word];
+          num codePoint = _dictionaries[word];
           if (codePoint == null) {
             codePoint = binaryToDecimalString(word);
           }
-          textBuffer.writeCharCode(codePoint);
+          textBuffer.writeCharCode(codePoint.toInt());
         }
       }
     } catch (e) {}
