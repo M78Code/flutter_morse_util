@@ -1,10 +1,10 @@
 name: flutter_morse_util
 description: A flutter_morse_util support offline or online encode and decode for morse.
-version: 0.0.2
+version: 0.0.4
 homepage: https://github.com/M78Code/flutter_morse_util
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.13.0 <3.0.0"
 
 
 dependencies:
