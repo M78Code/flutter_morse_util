@@ -82,7 +82,7 @@ class MorseUtil {
 
   final String _dit = '.'; //short mark or dot
   final String _dah = '-'; //longer mark or dash
-  final String _split = '/'; //摩尔斯分割符，以它来分割
+  final String _split = r' '; //摩尔斯分割符，以它来分割
 
   ///字符转电码
   String encode(String text) {
@@ -109,13 +109,13 @@ class MorseUtil {
     StringBuffer textBuffer = StringBuffer();
     try {
       for (String s in splitList) {
-        if (s.isNotEmpty) {
+        if (s.length > 0) {
           String word = s.replaceAll(_dit, '0').replaceAll(_dah, '1');
-          int codePoint = _dictionaries[word];
+          num codePoint = _dictionaries[word];
           if (codePoint == null) {
             codePoint = binaryToDecimalString(word);
           }
-          textBuffer.writeCharCode(codePoint);
+          textBuffer.writeCharCode(codePoint.toInt());
         }
       }
     } catch (e) {}
