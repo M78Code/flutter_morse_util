@@ -4,7 +4,7 @@ version: 0.0.1
 homepage: https://github.com/M78Code/flutter_morse_util
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=3.1.3 <4.0.0"
 
 
 dependencies:

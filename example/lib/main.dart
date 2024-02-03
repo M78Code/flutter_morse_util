@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 
@@ -96,8 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
         maxLines: null,
         //无行数限制
         textInputAction: TextInputAction.done,
-        decoration: InputDecoration(
-            border: OutlineInputBorder(), hintText: '请输入摩尔斯电码/中文'),
+        decoration: InputDecoration(border: OutlineInputBorder(), hintText: '请输入摩尔斯电码/中文'),
       ),
     );
   }
@@ -154,16 +153,12 @@ class _MyHomePageState extends State<MyHomePage> {
       width: 100,
       height: 60,
       margin: EdgeInsets.only(top: 10, left: 30, right: 30, bottom: 10),
-      child: RaisedButton(
-        elevation: 5,
-        color: Colors.blue,
-        textColor: Colors.white,
-        splashColor: Colors.deepPurpleAccent,
+      child: ElevatedButton(
+        onPressed: _launchURL,
         child: Text(
           '使用网络morse编/解码',
           style: TextStyle(fontSize: 12),
         ),
-        onPressed: _launchURL,
       ),
     );
   }
@@ -180,7 +175,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ///摩尔斯解码
   void morseDecode() {
     String decodeString = inputController.text;
-    if (null == decodeString.trim() || '' == decodeString) {
+    if (decodeString.isEmpty) {
       ToastUtil.showGravityToast(
         '请输入摩尔斯码',
         ToastGravity.CENTER,
@@ -188,8 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return;
     }
     try {
-      if (decodeString.startsWith(RegExp('-')) ||
-          decodeString.startsWith(RegExp('.'))) {
+      if (decodeString.startsWith(RegExp('-')) || decodeString.startsWith(RegExp('.'))) {
         String decodeResult = _morseUtil.decode(decodeString);
         //设置文本显示
         inputController.text = decodeResult;
@@ -222,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ///摩尔斯编码
   void morseEncode() {
     String decodeString = inputController.text;
-    if (null == decodeString.trim() || '' == decodeString) {
+    if (decodeString.isEmpty) {
       ToastUtil.showGravityToast(
         '请输入文本或字符',
         ToastGravity.CENTER,

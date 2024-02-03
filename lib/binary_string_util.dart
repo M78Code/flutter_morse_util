@@ -21,7 +21,7 @@ int binaryToDecimalString(String s) {
       List<String> list = s.split('');
       int size = list.length;
       for (int i = 0; i < size; i++) {
-        total += int.parse(list[i]) * pow(2, size - 1 - i);
+        total += int.parse(list[i]) * pow(2, size - 1 - i).toInt();
       }
       return total;
     } catch (e) {

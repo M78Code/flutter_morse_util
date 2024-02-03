@@ -1,4 +1,3 @@
-
 import 'binary_string_util.dart';
 
 ///摩尔斯码工具类
@@ -86,15 +85,19 @@ class MorseUtil {
 
   ///字符转电码
   String encode(String text) {
-    if (text == null || '' == text.trim()) return "";
+    if (text.trim().isEmpty) return "";
     StringBuffer stringBuffer = StringBuffer();
     String tempText = text.toUpperCase();
 
     for (int i = 0; i < tempText.length; i++) {
-      int codePoint = tempText.codeUnitAt(i);
-      String word = _alphabets[codePoint];
-      if (null == word) {
-        word = toBinaryString(codePoint);
+      int codePoint = tempText.codeUnitAt(i); //此处获取的是unitCode值，十进制数值
+      String word = "";
+      //先判断_alphabets当前字符是否在标准摩尔斯电码表字典中
+      if (_alphabets.containsKey(codePoint)) {
+        word = _alphabets[codePoint];
+      } else {
+        //将uniCode十进制值转成二进制值
+        word = codePoint.toRadixString(2);
       }
       stringBuffer.write(word.replaceAll('0', _dit).replaceAll('1', _dah));
       stringBuffer.write(_split);
@@ -104,21 +107,28 @@ class MorseUtil {
 
   ///电码转字符
   String decode(String morse) {
-    if (null == morse || '' == morse.trim()) return '';
+    if (morse.trim().isEmpty) return "";
     List<String> splitList = morse.split(_split);
     StringBuffer textBuffer = StringBuffer();
-    try {
-      for (String s in splitList) {
+    for (String s in splitList) {
+      try {
         if (s.isNotEmpty) {
-          String word = s.replaceAll(_dit, '0').replaceAll(_dah, '1');
-          int codePoint = _dictionaries[word];
-          if (codePoint == null) {
-            codePoint = binaryToDecimalString(word);
+          String codePoint = s.replaceAll(_dit, '0').replaceAll(_dah, '1');
+          String? word = "";
+          //判断_dictionaries字典中是否包含此值
+          if (_dictionaries.containsValue(codePoint)) {
+            codePoint = _dictionaries[codePoint];
+          } else {
+            //将二进制转成uniCode值，dart中unitCode值是十进制
+            word = int.tryParse(codePoint, radix: 2)?.toRadixString(10);
           }
-          textBuffer.writeCharCode(codePoint);
+          //将uniCode码转成对应的字符
+          textBuffer.writeCharCode(int.tryParse(word ?? "") ?? 0);
         }
+      } catch (e) {
+        print("解码错误:$e");
       }
-    } catch (e) {}
+    }
     return textBuffer.toString();
   }
 }
