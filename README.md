@@ -4,10 +4,10 @@
 
 
 ## 项目环境
-- flutter     --version v1.17.5
-- dart        --version v2.8.4
-- Framework   --version 8af6b2f038
-- Engine      --version ee76268252
+- flutter     --version v3.16.9
+- dart        --version v3.2.6
+- Framework   --version 41456452f2
+- Engine      --version f40e976bed
 
 ## 使用方法:
 
@@ -26,7 +26,7 @@ dependencies:
   flutter:
     sdk: flutter
   # 添加依赖
-  flutter_morse_util: ^0.0.1
+  flutter_morse_util: ^0.0.3
 ```
 
 ### Example
